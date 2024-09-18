@@ -1,0 +1,20 @@
+Select course then:
+
+1. Insert welcome note
+2. Insert Course Image
+3. Insert Course outline image
+4. Insert teacher image and info
+5. Insert join link(telegram or whatsapp)
+6. Insert Attendence link
+
+
+7. Insert Navigation(all info link)
+8. Insert week info(Topics of discussion,Expected Learning Outcome
+                   Discussion on Week,Materials,Task Submission)
+
+
+Info from admin:
+1. Course Objective
+2. Course Outcomes (CO’s)
+3. Grading Scheme
+4. 

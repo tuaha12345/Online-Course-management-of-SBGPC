@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SBPGC OLC</title>
+	<link rel="icon" type="image/x-icon" href="images/logo2.png">
+
+	<!--- bootstrap CSS link --->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+	<!--- font awesome link --->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-------- CSS ------>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<style type="text/css">
+    	body
+    	{
+    		overflow-x:hidden ;
+    	}
+    </style>    <!--------- custom css-------->
+        <style>
+        @keyframes moveUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .moving-icon {
+            animation: moveUpDown 1s infinite; /* You can adjust the animation duration */
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+<div class="container-fluid p-0 " >
+
+<style type="text/css">
+	.nav_bg{
+		background-color: #81C55D;
+	}
+</style>
+
+<!---------------------------- navbar ---------------->
+
+     	<nav class="navbar navbar-expand-lg nav_bg">
+		  <div class="container-fluid">
+		    <img src="images/logo3.png" class="logo_img" alt="images/logo1.png">
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+		      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
+		        <li class="nav-item">
+		          <a class="nav-link active " aria-current="page" href="index.php">Home</a>
+		        </li>
+<!-- 		        <li class="nav-item">
+		        	<a class='nav-link' href='user_area/user_registration.php'>Regiser</a>'		        </li> -->
+		        <li class="nav-item">
+		          <a class="nav-link " href="all_courses.php">All Courses</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="enrolled_course.php">Enrolled Courses <i class="fas fa-graduation-cap"></i><sup>50</sup></a>
+		        </li>
+
+
+		      </ul>
+    <!--------------------- dropdown--------------->
+			<div class="dropdown ">
+			  <a class="nav-link me-4" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+			    User name
+			  </a>
+
+			  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			    <li><a class="dropdown-item" href="#">Action</a></li>
+			    <li><a class="dropdown-item" href="#">Another action</a></li>
+			    <li><a class="dropdown-item" href="#">Something else here</a></li>
+			  </ul>
+			</div>		
+      <!------------------ end------------->
+		      <form class="d-flex"  method="get" action="index.php" role="search">
+		        <input class="form-control " type="search" placeholder=" Search" aria-label="Search" name="search_data">		        
+		        <button class="btn text-white" type="submit" name="search_data_product">
+		        	<i style="font-size:20px" class="fa">&#xf002;</i>
+		        </button>	        		          
+		      </form>
+
+
+		    </div>
+		  </div>
+		</nav> <!---------- navbar----------->
+
+     
+    <div class="row " style="background-color: #edf0ed;" >
+       
+       <!DOCTYPE html>
+<html>
+<head>
+   <style>
+        /* Custom styles for the sidebar and side list */
+        body {
+            display: flex;
+        }
+
+        .for_fixed{
+position:fixed;
+width: 100px;
+height:50px;
+        }
+
+        .sidebar {
+            width: 100px;
+            padding-top: 20px;
+            
+
+        }
+
+        .sidebar a {
+            color: white;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+
+        }
+
+        .sidebar a:hover {
+            background-color: #d9fcdb;
+        }
+
+        /* Styles for the courses side list */
+        .courses-list {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #343a40;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar .course:hover + .courses-list {
+            display: block;
+        }
+
+        .courses-list a {
+            color: white;
+           
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+</style>
+
+</head>
+<body>
+    
+
+
+<div class="col-md-2 bg-light p-0 sidebar shadow  bg-white rounded">
+    		<!---- Brands will be displayed--->
+         <ul class="navbar-nav me-auto text-center for_fixed">
+         	<li class="nav-item ">
+         		<a href="#" class="nav-link text-secondary"></a>
+         	</li>
+
+
+            <li class="nav-item">
+                <a href="index.php" class="nav-link text-secondary" data-toggle="home" data-placement="right" title="Home">
+                    <i class="fas fa-home "></i>
+                </a>
+            </li>
+
+
+
+            <li class="nav-item ">
+               <a href="#" class="nav-link text-secondary" data-toggle="home" data-placement="right" title="University">
+               <i class="fas fa-university"></i>
+               </a>
+            </li>
+
+            <li class="nav-item ">
+               <a href="all_courses.php" class="nav-link text-secondary " data-toggle="tooltip" data-placement="right" title="All Courses">
+               <i class="fas fa-book"></i>
+               </a>
+            </li>
+
+           <li class="nav-item ">
+               <a href="#" class="nav-link text-secondary">
+               <i class="fas fa-folder"></i>
+               </a>
+            </li>
+
+            <li class="nav-item courses-icon">
+
+               <a href="enrolled_course.php" class="nav-link text-secondary icon" data-toggle="tooltip" data-placement="right" title="Enrolled Courses">
+               <i class="fas fa-graduation-cap course"></i>
+               </a>
+                                
+            </li>
+
+
+         </ul>
+
+
+</div>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+
+
+  <script>
+    var timeoutId;
+
+    function showDiv() {
+      document.getElementById('course_list').style.display = 'block';
+    }
+
+    function hideDiv() {
+      timeoutId = setTimeout(function() {
+        document.getElementById('course_list').style.display = 'none';
+      }, 2000); // Set the delay to 3000 milliseconds (3 seconds)
+    }
+
+    // Clear the timeout if the mouse returns to the icon
+    document.querySelector('.icon').addEventListener('mouseover', function() {
+      clearTimeout(timeoutId);
+    });
+  </script>
+  </body>
+</html>
+ <!---sidebar --->
+
+
+         
+        <div class="col-md-10  m-5 main ">
+            <div class="row">
+                <div class="col-md-6">
+                   <h3 class='text-monospace'>Computer Network</h3>                </div>
+                <div class="col-md-6 d-flex flex-row-reverse ">
+                    <a href='unenrol.php?code=CSE313&student_id=2023001' class='btn btn-danger'>Unenrol me!</a>
+
+
+
+                    
+                </div>
+
+       
+            </div>
+
+<!-----------1st row (teacher info and course info)--------------------------->
+
+            <!------------ teacher info--- row 1------>
+            <div class="row m-5 px-5 pb-5 rounded" style="background-color:#E4E4E4">
+                   <h5 class="text-secondary my-4">Welcome Note</h5>
+                   
+                   <!----- teacher greetings-->
+                   <div class="pb-3">
+                    Welcome to Computer Networks Course                    
+                   </div>
+                  
+
+                   <!---------course image---->
+                   <div class="d-flex justify-content-center py-3">
+                       <img src='../teacher/uploads/courses/download.jpg' height="300px" width=100%>
+                   </div>
+
+                   <!---------course outline image---->
+                   <div class="d-flex justify-content-center py-5">
+                       
+                       <img src='../teacher/uploads/courses/COs.png' height="300px" width=70%>
+                   </div>
+
+                   <!---------Instructor info---->
+                       <h1>Give here instructor info</h1>
+                                   
+
+                   <!-------------Course Objective ----------->
+                   <span class="fw-bold text-info fs-4">Course Objective</span>
+                   <div class="d-flex justify-content-center py-4">
+                     <pre class='border border-secondary p-3 fw-bolder'>1. Build an understanding of the fundamental concepts of computer networking.
+
+2. Familiarize the student with the basic taxonomy and terminology of the computer networking area.
+
+3. Introduce the student to advanced networking concepts, preparing the student for entry into Advanced courses in computer networking.
+
+4. Allow the student to gain expertise in some specific areas of networking such as the design and maintenance of individual networks.                     </pre>
+                   </div>                   
+
+
+                   <!-------------Course Outcomes  ----------->
+                   <span class="fw-bold text-info fs-4">Course Outcomes (CO’s)</span>
+                   <div class="d-flex justify-content-center py-4">
+                     <pre class='border border-secondary p-3 fw-bolder'>CO1
+
+Able to identify the fundamental technologies for the hardware and software of the internet and their addressing mechanism.
+
+CO2
+
+Able to analyze the conceptual and implementation aspects of network applications and their use in most of the application, Transport, and Data link layer protocols for implementing enterprise network.
+
+CO3
+
+Able to apply the knowledge of the basic binary system to solve sub-netting problems and can identify and make an evaluation of the underlying principles of routing algorithms and their related protocols being applied to the Internet.
+
+CO4
+
+Able to describe the components, services, principle, and protocol provided in a wireless network and can categorize between different wireless architecture.                     </pre>
+
+                   </div> 
+
+                   <!-------------Grading Scheme  ----------->
+                   <h1 class="text-danger">Grading Scheme make this dynamic</h1>
+                   <span class="fw-bold text-info fs-4">Grading Scheme</span>
+                   <div class="d-flex justify-content-center row py-4">
+                    <!-------- theory class---->
+                       <div class="col-md-6 col-sm-6 border border-secondary fw-bold
+                       px-3 py-3">
+                           <p class="text-center fs-5 text-success fw-bolder" >Theory Class</p>
+                           <tr>Attendance: 7%</tr><br>
+                           <tr>Class Tests/Quizzes:  15% </tr><br>
+                           <tr>Assignment: 5%</tr><br>
+                           <tr>Presentation (using video/ppt): 8%</tr><br>
+                           <tr>Midterm Exam: 25%</tr><br>
+                           <tr>Final Exam: 40%</tr><br>
+
+                       </div>
+                            <!-------- Lab class---->
+                       <div class="col-md-6 col-sm-6 border border-secondary fw-bold
+                       px-3 py-3">
+                           <p class="text-center fs-5 text-success fw-bolder" >Lab Class</p>
+                           <tr>Lab Attendance: 10%</tr><br>
+                           <tr>Lab Performance Test: 25%</tr><br>
+                           <tr>Assignment + Viva: 10%</tr><br>
+                           <tr>Project: 25%</tr><br>
+                           <tr>Lab Final: 30%</tr><br>
+                       </div>
+                   </div> 
+
+
+
+                   <!---------Join telegram & whatsapp group ----------->
+                   <span class="fw-bold text-info fs-4 py-4">Join With Us</span>
+                   <div class="">
+                     <div>
+                         <img src="images/telegram_logo.png" with='70px' height='70px'>Join Link:
+                         <a href='' class='text-info'>
+                           https://t.me/joinchat/wG8JYPtUMFoxYjE1?fbclid=IwAR3vCHAJNLPOD7XUMt5SLSI4LZ_Ueb0zZNrFhNWCazXcjpPKxnid5WTD7lo                         </a>
+                     </div>
+                     <div>
+                         <img src="images/WhatsApp_logo.png" with='50px' height='50px'>Join Link:
+                         <a href='' class='text-success'>
+                           www.whatsapp.com                     </a>
+                     </div>
+                   </div> 
+
+
+                   <!---------  Attendance ----------->
+                   
+                   <div class="text-center py-5">
+                     <div class='border border-secondary p-4' style='background-color:#91eaed'>
+                        <p class='fs-4 fw-bolder'>Click here for 
+                          <a href="" class="link-danger">Attendance</a>
+                        </p>
+                     </div>
+                   </div> 
+
+
+            
+
+            </div> <!------ end of row1----->
+
+
+
+
+            <!-------------------- row 2------------------>
+            
+            <div class="d-flex justify-content-center m-5 px-5 rounded " style='background:#ddeaeb;'>
+
+                <div class="border border-secondary  m-5" style='width:90%'>
+                    <!-------- heading-------->
+                    <p class="border-bottom border-secondary fs-2 fw-bold text-center p-3" style='background-color:#fcba03'>Navigation Link</p>
+
+                    <!-----body------->
+                    <div class="row">
+                        <span class="ms-3 fw-bolder fs-4 text-secondary">Class Test:</span>
+                        <p href="" class="ms-4 fw-bolder text-info col-md-1"></p>
+
+                        <a href="" class="fw-bolder text-info col-md-1">Quiz1</a>
+                        <a href="" class="fw-bolder text-info  col-md-1">Quiz2</a>
+                        <a href="" class="fw-bolder text-info  col-md-1">Quiz3</a>
+                    </div>
+
+                    <div class="row my-3">
+                        <span class="ms-3 fw-bolder fs-4 col-md-2 text-secondary">Assignment:</span>
+
+                        <a href='' class='text-info  col-md-1 fs-4 ms-2'>ASN1</a>                        
+                    </div>
+
+                    <div class='row'>
+                        <span class="ms-3 fw-bolder fs-4 text-secondary">Presentation:</span> 
+                        <p href="" class="ms-4 fw-bolder text-info col-md-1"></p>
+
+                        <a href="" class="ms-5 fw-bolder text-info col-md-6  ms-2">Submit your presentation here</a>
+
+                    </div>
+
+                    <div class="row my-3">
+                        <span class="ms-3 fw-bolder fs-4 text-secondary" >Week2Go:</span>
+                        <p href="" class="ms-5 fw-bolder text-info col-md-1"></p>
+
+                        <a href="" class="fw-bolder text-info col-md-1">WK1</a>
+                        <a href="" class="fw-bolder text-info  col-md-1">WK2</a>
+                        <a href="" class="fw-bolder text-info  col-md-1">WK3</a> 
+                        <a href="" class="fw-bolder text-info col-md-1">WK4</a>
+                        <a href="" class="fw-bolder text-info  col-md-1">WK5</a>
+                        <a href="" class="fw-bolder text-info  col-md-1">WK6</a>
+                    </div>
+
+                    <div class="row my-4">
+                        <span class="fw-bolder fs-3 text-center text-secondary" >Exam:</span>
+                        <u></u>
+                        
+                             <a href='' class="col-md-6 text-center fw-bolder fs-4 text-danger">Mid Exam</a>
+                             <a href='' class="col-md-6 text-center fw-bolder fs-4 text-danger">Final Exam</a>
+
+                        
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+            <!-------------------- row 3------------------>
+            
+             <div class='m-5 px-5 rounded bg-white'>
+                <p class='text-secondary fs-6 text-right py-3 fw-bolder'>
+                Week-01:</p>
+                <div class='p-2' style='border-radius: 20px; border:solid 5px dimgray; background:rgb(170, 46, 181)' >
+                    <h2 class='text-center'>Week-01 Network Layer</h2>
+                </div>
+                <!---------- chapter image-------->
+                <div class='d-flex justify-content-center mt-5'>
+                    <img src='../teacher/uploads/weeklysection/networking-osi_model_network_layer-h_half_column_mobile.png' height='200px' width='400px' >       
+                </div>
+                 <hr>
+
+                <!---------- Topics of discussion-------->
+                <div>
+                    <p style='' class='fw-bolder text-success fs-4'>Topics of discussion</p>
+                    <pre>IP Basics</pre>
+                </div>
+
+                <!---------- Topics of discussion-------->
+                <div>
+                    <p style='color:#71c7f5;' class='fw-bolder fs-4'>Expected Learning Outcome</p>
+                    <pre>Able to identify the fundamental technologies for the hardware and software of the internet and their addressing mechanism.</pre>
+                </div>
+
+
+
+                <!---------- Discussion on Week-------->
+                <div>
+                    <p style='color:#b82f09;' class='fw-bolder fs-4'>Discussion on Week</p>
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='https://www.youtube.com/watch?v=e_cY2Kv9h4U&t=1s' class='fw-bolder fs-6 ' style='color:#0975b8'><i class='fas fa-play-circle'></i>
+                            Class Recording</a>
+
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='' class='fw-bolder fs-6' style='color:#0975b8'><i class='fas fa-question-circle'></i>
+                            Questions & Ans</a>
+
+                        </div>
+
+                </div>
+                <hr>
+
+
+
+                <!---------- Materials  -------->
+                <div>
+                    <p style='color:#a171f5' class='fw-bolder fs-4 text-center'>Materials</p>
+                    <div class='row border border-secondary shadow rounded'>
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='' . uploads/weeklysection/IP Basics.pptx . '' download='IP Basics.pptx' class='fw-bolder fs-5 text-danger'><i class='fas fa-file-powerpoint'></i>
+                            Lecture Slide</a>
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='https://www.youtube.com/watch?v=6G8UbJlj54Y&ab_channel=SALAMJAMBI' class='fw-bolder fs-5' style='color:#1eb809'><i class='fas fa-video'></i>
+                            Lecture Video</a>
+
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='' . uploads/weeklysection/IP Basics.pptx . '' download='Catalogue of TINSMITH TD Series Robot joint module202311.pdf' class='fw-bolder fs-5 text-danger' class='fw-bolder  fs-5 text-danger'><i class='fas fa-file-pdf'></i>
+                            PDF</a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <br><br><br>
+                <div class='text-center'>
+                    <p style='color:red' class='fw-bolder fs-4 text-center'>Task Submission</p>
+                    <i class='fas fa-arrow-down fa-fw moving-icon' style='font-size: 28px; color:red;'></i><br>
+                    <div class='border border-secondary p-3 rounded fs-5 shadow'>
+                     <a href='http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=sbpgc_olc&table=weeklysection'> Submit your task here..</a>   
+                    </div> 
+                       
+                    
+                </div>
+
+                <br><br><br><br><br>
+
+
+
+
+
+
+                
+            </div><!-----end row 3-------->
+                 
+
+
+
+
+
+
+
+
+
+        </div> <!------ end of main--->
+
+
+        
+    </div>
+
+
+
+
+
+        <!----- last child-footer --->
+        <style type="text/css">
+	.footer_bg{
+		background-color: #81C55D;
+	}
+</style>		
+
+		<div class="footer_bg  p-2 pt-3 text-center">
+			<div class="text-white row p-5">
+				<div class="col-md-6 col-sm-6">
+                   <p class="fw-bold fs-4">Shaikh Burhanuddin Post <br>Graduate College</p>
+                   <p class="fw-bold">62, Nazimuddin Road, Dhaka-1100 <br>| info@sbpgc.edu.bd</p>
+				</div>
+
+				<div class="col-md-6 col-sm-6 ">
+					<p class="fw-bold fs-4">Useful Links</p>
+					<a href="#" class="text-decoration-none  text-white fw-bold">OLC guidelines for students</a><br>
+					<a href="#" class="text-decoration-none text-white fw-bold">OLC guidelines for teachers</a><br>
+					<a href="#" class="text-decoration-none text-white fw-bold">Privacy Policy</a><br>
+					<a href="#" class="text-decoration-none text-white fw-bold">Terms of Use</a>
+				</div>
+			</div>
+			<p class="text-center py-3 text-white">Copyright © 2018 Shaikh Burhanuddin Post Graduate College . All Rights Reserved.</p>
+		</div>
+
+</div>
+
+
+
+
+
+<!--- bootstrap JS link --->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

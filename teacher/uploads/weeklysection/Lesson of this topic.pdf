@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SBPGC OLC</title>
+	<link rel="icon" type="image/x-icon" href="images/logo2.png">
+
+	<!--- bootstrap CSS link --->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+	<!--- font awesome link --->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-------- CSS ------>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<style type="text/css">
+    	body
+    	{
+    		overflow-x:hidden ;
+    	}
+    </style>    <!--------- custom css-------->
+        <style>
+        @keyframes moveUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .moving-icon {
+            animation: moveUpDown 1s infinite; /* You can adjust the animation duration */
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+<div class="container-fluid p-0 " >
+
+
+<style type="text/css">
+	.nav_bg{
+		background-color: #81C55D;
+	}
+</style>
+
+<!---------------------------- navbar ---------------->
+
+     	<nav class="navbar navbar-expand-lg nav_bg">
+		  <div class="container-fluid">
+		    <img src="images/logo3.png" class="logo_img" alt="images/logo1.png">
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+		      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
+		        <li class="nav-item">
+		          <a class="nav-link active " aria-current="page" href="index.php">Home</a>
+		        </li>
+
+		        <li class="nav-item">
+		          <a class="nav-link " href="all_courses.php">All Courses</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="enrolled_course.php">Enrolled_Courses <i class="fas fa-graduation-cap"></i><sup>1</sup></a>
+		        </li>
+
+
+		      </ul>
+    <!--------------------- dropdown--------------->
+            <div>
+            	<a href="" class='nav-link px-2 mx-4'>tuaha</a>
+            </div>
+			<div >
+			  <a class="nav-link me-4 " href="./logout.php">
+			    Logout
+			  </a>
+			</div>		
+      <!------------------ end------------->
+		    <!--   <form class="d-flex"  method="get" action="index.php" role="search">
+		        <input class="form-control " type="search" placeholder=" Search" aria-label="Search" name="search_data">		        
+		        <button class="btn text-white" type="submit" name="search_data_product">
+		        	<i style="font-size:20px" class="fa">&#xf002;</i>
+		        </button>	        		          
+		      </form> -->
+
+
+		    </div>
+		  </div>
+		</nav> <!---------- navbar----------->
+
+     
+    <div class="row " style="background-color: #edf0ed;" >
+       
+       <!DOCTYPE html>
+<html>
+<head>
+   <style>
+        /* Custom styles for the sidebar and side list */
+        body {
+            display: flex;
+        }
+
+        .for_fixed{
+position:fixed;
+width: 100px;
+height:50px;
+        }
+
+        .sidebar {
+            width: 100px;
+            padding-top: 20px;
+            
+
+        }
+
+        .sidebar a {
+            color: white;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+
+        }
+
+        .sidebar a:hover {
+            background-color: #d9fcdb;
+        }
+
+        /* Styles for the courses side list */
+        .courses-list {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #343a40;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar .course:hover + .courses-list {
+            display: block;
+        }
+
+        .courses-list a {
+            color: white;
+           
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+</style>
+
+</head>
+<body>
+    
+
+
+<div class="col-md-2 bg-light p-0 sidebar shadow  bg-white rounded">
+    		<!---- Brands will be displayed--->
+         <ul class="navbar-nav me-auto text-center for_fixed">
+         	<li class="nav-item ">
+         		<a href="#" class="nav-link text-secondary"></a>
+         	</li>
+
+
+            <li class="nav-item">
+                <a href="index.php" class="nav-link text-secondary" data-toggle="home" data-placement="right" title="Home">
+                    <i class="fas fa-home "></i>
+                </a>
+            </li>
+
+
+
+<!--             <li class="nav-item ">
+               <a href="#" class="nav-link text-secondary" data-toggle="home" data-placement="right" title="University">
+               <i class="fas fa-university"></i>
+               </a>
+            </li> -->
+
+            <li class="nav-item ">
+               <a href="all_courses.php" class="nav-link text-secondary " data-toggle="tooltip" data-placement="right" title="All Courses">
+               <i class="fas fa-book"></i>
+               </a>
+            </li>
+
+<!--            <li class="nav-item ">
+               <a href="#" class="nav-link text-secondary">
+               <i class="fas fa-folder"></i>
+               </a>
+            </li> -->
+
+            <li class="nav-item courses-icon">
+
+               <a href="enrolled_course.php" class="nav-link text-secondary icon" data-toggle="tooltip" data-placement="right" title="Enrolled Courses">
+               <i class="fas fa-graduation-cap course"></i>
+               </a>
+                                
+            </li>
+
+
+         </ul>
+
+
+</div>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+
+
+  <script>
+    var timeoutId;
+
+    function showDiv() {
+      document.getElementById('course_list').style.display = 'block';
+    }
+
+    function hideDiv() {
+      timeoutId = setTimeout(function() {
+        document.getElementById('course_list').style.display = 'none';
+      }, 2000); // Set the delay to 3000 milliseconds (3 seconds)
+    }
+
+    // Clear the timeout if the mouse returns to the icon
+    document.querySelector('.icon').addEventListener('mouseover', function() {
+      clearTimeout(timeoutId);
+    });
+  </script>
+  </body>
+</html>
+ <!---sidebar --->
+
+
+         
+        <div class="col-md-10  m-5 main ">
+            <div class="row">
+                <div class="col-md-6">
+                   <h3 class='text-monospace'>Introduction to Computer System</h3>                </div>
+                <div class="col-md-6 d-flex flex-row-reverse ">
+                    <a href='unenrol.php?code=CSE-111&student_id=192-15-13129' class='btn btn-danger'>Unenrol me!</a>
+
+
+
+                    
+                </div>
+
+       
+            </div>
+
+<!-----------1st row (teacher info and course info)--------------------------->
+
+            <!------------ teacher info--- row 1------>
+            <div class="row m-5 px-5 pb-5 rounded" style="background-color:#E4E4E4">
+                   <h5 class="text-secondary my-4">Welcome Note</h5>
+                   
+                   <!----- teacher greetings-->
+                   <div class="pb-3">
+                    Welcome to CSE-111: Introduction to Computer Systems! This course marks the beginning of your fascinating journey into the world of computing. Here, we aim to provide you with a solid foundation in the principles and practices that underpin modern computer systems. Whether you're aiming to become a software developer, a systems analyst, or pursue any career in the IT sector, understanding computer systems is crucial. We look forward to exploring the intricacies of computing technology together, fostering a supportive and dynamic learning environment. Let's embark on this educational adventure with enthusiasm and an open mind to the endless possibilities that computing offers.                    
+                   </div>
+                  
+
+                   <!---------course image---->
+                   <div class="d-flex justify-content-center py-3">
+                       <img src='../teacher/uploads/courses/Introduction-To-Computer-System.jpg' height="300px" width=100%>
+                   </div>
+
+                   <!---------course outline image---->
+                   <div class="d-flex justify-content-center py-5">
+                       
+                       <img src='../teacher/uploads/courses/outline1.png' height="300px" width=70%>
+                   </div>
+
+                 
+                   <!---------Instructor info---->
+                    <div class='row d-flex justify-content-center py-5'>
+            <img src='../teacher/teacher_images/image-2024-03-30-20-31-22Sharmin Toa.jpg' class='col-md-3 p-0 '>
+            <div class='col-md-9 border border-secondary fw-bold text-secondary p-3 '>
+                <th class='fs-4'> <span class='text-success fw-bolder fs-4'>Instructor :</span> <span class='fs-4 fw-bolder'> Sharmin Toa</span></th><br>
+                <th class='fw-bolder'> <span class='text-success fw-bolder'>Office Room:</span> #112 (1st floor),SBPGC</th><br>
+                <th class=''> <span class='text-success fw-bolder'>Sunday (14:00/16:00),Thursday (14:00/16:00) or by appointment</th><br>
+                <th class=''> <span class='text-success fw-bolder'>Contact Number:</span> +8801521569365</th><br>
+                <th class=''> <span class='text-success fw-bolder'>Email:</span> SharminToa@gmail.com</th><br>
+                <th class=''> <span class='text-success fw-bolder'>Web Profile:</span><a href='https://www.linkedin.com/in/sharmin-toa-3b5540168/?trk=public_profile_browsemap&originalSubdomain=bd'> https://www.linkedin.com/in/sharmin-toa-3b5540168/?trk=public_profile_browsemap&originalSubdomain=bd</a></th>
+            </div>
+        </div>
+                       
+
+                   <!-------------Course Objective ----------->
+                   <span class="fw-bold text-info fs-4">Course Objective</span>
+                   <div class="d-flex justify-content-center py-4">
+                     <pre class='border border-secondary p-3 fw-bolder'>1. Introduce the architecture of computer systems, including hardware and software interactions.
+2. Explore the basics of data representation, storage, and manipulation within computers.
+3. Familiarize students with operating system principles, including process management and memory management.
+4. Develop an understanding of the role and functionality of system software, including compilers and interpreters.
+5. Lay the groundwork for further study in specialized areas of computer science and information technology.                                                                                                                                                          </pre>
+                   </div>                   
+
+
+                   <!-------------Course Outcomes  ----------->
+                   <span class="fw-bold text-info fs-4">Course Outcomes (CO’s)</span>
+                   <div class="d-flex justify-content-center py-4">
+                     <pre class='border border-secondary p-3 fw-bolder'>1. Understand Computer Architecture: Describe the basic architecture of a computer system, including the function of the CPU, memory hierarchy, input/output devices, and data paths.
+2. Comprehend System Operations: Explain how operating systems manage hardware and software resources, process scheduling, and memory.
+3. Data Representation and Manipulation: Understand how data is represented and manipulated within a computer system, including number systems, binary arithmetic, and logical operations.
+4. Software Interaction: Grasp the interaction between system software and hardware, including the role of compilers, interpreters, and application software.
+5. Problem-Solving Skills: Apply theoretical knowledge to solve practical problems related to computer systems and their components.                                                                                                                                                       </pre>
+
+                   </div> 
+
+                   <!-------------Grading Scheme  ----------->
+                   <!-- <h1 class="text-danger">Grading Scheme make this dynamic</h1> -->
+                   <span class="fw-bold text-info fs-4">Grading Scheme</span>
+                   <div class="d-flex justify-content-center row py-4">
+                    <!-------- theory class---->
+                       <div class="col-md-6 col-sm-6 border border-secondary fw-bold
+                       px-3 py-3">
+                           <p class="text-center fs-5 text-success fw-bolder" >Theory Class</p>
+                           <tr>Attendance: 7%</tr><br>
+                           <tr>Class Tests/Quizzes:  15% </tr><br>
+                           <tr>Assignment: 5%</tr><br>
+                           <tr>Presentation (using video/ppt): 8%</tr><br>
+                           <tr>Midterm Exam: 25%</tr><br>
+                           <tr>Final Exam: 40%</tr><br>
+
+                       </div>
+                            <!-------- Lab class---->
+                       <div class="col-md-6 col-sm-6 border border-secondary fw-bold
+                       px-3 py-3">
+                           <p class="text-center fs-5 text-success fw-bolder" >Lab Class</p>
+                           <tr>Lab Attendance: 10%</tr><br>
+                           <tr>Lab Performance Test: 25%</tr><br>
+                           <tr>Assignment + Viva: 10%</tr><br>
+                           <tr>Project: 25%</tr><br>
+                           <tr>Lab Final: 30%</tr><br>
+                       </div>
+                   </div> 
+
+
+
+                   <!---------Join telegram & whatsapp group ----------->
+                   <span class="fw-bold text-info fs-4 py-4">Join With Us</span>
+                   <div class="">
+                     <div>
+                         <img src="images/telegram_logo.png" with='70px' height='70px'>Join Link:
+                         <a href='www.whatsapp.com' class='text-info'>
+                           www.whatsapp.com                         </a>
+                     </div>
+                     <div>
+                         <img src="images/WhatsApp_logo.png" with='50px' height='50px'>Join Link:
+                         <a href='www.telegram.com' class='text-success'>
+                           www.telegram.com                     </a>
+                     </div>
+                   </div> 
+
+
+                   <!---------  Attendance ----------->
+                   
+                   <div class="text-center py-5">
+                     <div class='border border-secondary p-4' style='background-color:#91eaed'>
+                        <p class='fs-4 fw-bolder'>Click here for 
+                          <a href="" class="link-danger">Attendance</a>
+                        </p>
+                     </div>
+                   </div> 
+
+
+            
+
+            </div> <!------ end of row1----->
+
+
+
+
+            <!-------------------- row 2------------------>
+            
+            <div class="d-flex justify-content-center m-5 px-5 rounded " style='background:#ddeaeb;'>
+
+                <div class="border border-secondary  m-5" style='width:90%'>
+                    <!-------- heading-------->
+                    <p class="border-bottom border-secondary fs-2 fw-bold text-center p-3" style='background-color:#fcba03'>Navigation Link</p>
+
+                    <!-----body------->
+                    <div class="row">
+                        <span class="ms-3 fw-bolder fs-4 text-secondary">Class Test:</span>
+                        <p href="" class="ms-4 fw-bolder text-info col-md-1"></p>
+
+                        <a href="" class="fw-bolder text-info col-md-1">Quiz1</a>
+                        <a href="" class="fw-bolder text-info  col-md-1">Quiz2</a>
+                        <a href="" class="fw-bolder text-info  col-md-1">Quiz3</a>
+                    </div>
+
+                    <div class="row my-3">
+                        <span class="ms-3 fw-bolder fs-4 col-md-2 text-secondary">Assignment:</span>
+
+                        <a href='course_assignment.php?asn_no=ASN6&c_code=CSE-111&sec=B&t_name=Sharmin Toa' class='text-info  col-md-1 fs-4 ms-3' target='_blnak'>ASN6</a><a href='course_assignment.php?asn_no=ASN1&c_code=CSE-111&sec=B&t_name=Sharmin Toa' class='text-info  col-md-1 fs-4 ms-3' target='_blnak'>ASN1</a>                        
+                    </div>
+
+                    <div class='row'>
+                        <span class="ms-3 fw-bolder fs-4 text-secondary">Presentation:</span> 
+                        <p  class="ms-4 fw-bolder text-info col-md-1"></p>
+
+                        <a href='course_presentation.php?c_code=CSE-111&sec=B&t_name=Sharmin Toa' class='ms-5 fw-bolder text-info col-md-6  ms-2' target='_blnak'>Submit your presentation here</a>                    </div>
+
+                    <div class="row my-3">
+                        <span class="ms-3 fw-bolder fs-4 text-secondary" >Week2Go:</span>
+                        <p href="" class="ms-5 fw-bolder text-info col-md-1"></p>
+                        
+                            <a href='#Week-01' class='fw-bolder text-info col-md-1'>Week1</a>
+                            
+                            <a href='#Week-02' class='fw-bolder text-info col-md-1'>Week2</a>
+                               
+
+
+                    </div>
+
+                    <div class="row my-4">
+                        <span class="fw-bolder fs-3 text-center text-secondary" >Exam:</span>
+                        <u></u>
+
+                          <a href='mid_exam.php?course_code=CSE-111' class="col-md-6 text-center fw-bolder fs-4 text-danger" target='_blank'>Mid Exam</a>
+                          <a href='final_exam.php?course_code=CSE-111' class="col-md-6 text-center fw-bolder fs-4 text-danger" target='_blank'>Final Exam</a>
+
+                        
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+            <!-------------------- row 3------------------>
+            
+             <div class='m-5 px-5 rounded bg-white' id='Week-01'>
+                <p class='text-secondary fs-6 text-right py-3 fw-bolder'>
+                Week-01:</p>
+                <div class='p-2' style='border-radius: 20px; border:solid 5px dimgray; background:rgb(100, 179, 60)' >
+                    <h2 class='text-center'>Week-01 Basics of Computer Systems</h2>
+                </div>
+                <!---------- chapter image-------->
+                <div class='d-flex justify-content-center mt-5'>
+                    <img src='../teacher/uploads/weeklysection/computer.jpg' height='200px' width='400px' >       
+                </div>
+                 <hr>
+
+                <!---------- Topics of discussion-------->
+                <div>
+                    <p style='' class='fw-bolder text-success fs-4'>Topics of discussion</p>
+                    <pre>Topics of Discussion:
+
+1. What is a Computer System? Understanding Hardware and Software.
+2. Key components of a computer: CPU, Memory, Storage, Input & Output Devices.
+3. Overview of Operating Systems.</pre>
+                </div>
+
+                <!---------- Topics of discussion-------->
+                <div>
+                    <p style='color:#71c7f5;' class='fw-bolder fs-4'>Expected Learning Outcome</p>
+                    <pre>Expected Learning Outcomes:
+
+# Identify the main components of a computer system.
+# Describe the function of each component within a computer.
+# Understand the role of operating systems in managing hardware and software resources.</pre>
+                </div>
+
+
+
+                <!---------- Discussion on Week-------->
+                <div>
+                    <p style='color:#b82f09;' class='fw-bolder fs-4'>Discussion on Week</p>
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='https://www.google.com/drive/' class='fw-bolder fs-6 ' style='color:#0975b8'><i class='fas fa-play-circle'></i>
+                            Class Recording</a>
+
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <strong class='fw-bolder fs-6' style='color:#0975b8'><i class='fas fa-question-circle'></i>
+                            Questions & Ans</strong>
+                            <pre>Q: What are the main differences between hardware and software?
+A: Hardware refers to the physical components of a computer, like the CPU and memory, while software is the collection of instructions that tells the hardware what to do.
+Q: Why is the operating system important?
+A: It manages the computer's memory, processes, software, and hardware. It also provides services for computer programs.</pre>
+
+                        </div>
+
+                </div>
+                <hr>
+
+
+
+                <!---------- Materials  -------->
+                <div>
+                    <p style='color:#a171f5' class='fw-bolder fs-4 text-center'>Materials</p>
+                    <div class='row border border-secondary shadow rounded'>
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='' . uploads/weeklysection/Lecture Slide.pptx . '' download='Lecture Slide.pptx' class='fw-bolder fs-5 text-danger'><i class='fas fa-file-powerpoint'></i>
+                            Lecture Slide</a>
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='https://www.youtube.com/watch?v=qfUZBKDh9BY&ab_channel=LearnComputerScience' class='fw-bolder fs-5' style='color:#1eb809'><i class='fas fa-video'></i>
+                            Lecture Video</a>
+
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='' . uploads/weeklysection/Lecture Slide.pptx . '' download='Lesson of this topic.pdf' class='fw-bolder fs-5 text-danger' class='fw-bolder  fs-5 text-danger'><i class='fas fa-file-pdf'></i>
+                            PDF</a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <br><br><br>
+                <div class='text-center'>
+                    <p style='color:red' class='fw-bolder fs-4 text-center'>Task Submission</p>
+                    <i class='fas fa-arrow-down fa-fw moving-icon' style='font-size: 28px; color:red;'></i><br>
+                    <div class='border border-secondary p-3 rounded fs-5 shadow'>
+                     <a href='https://drive.google.com/drive/u/0/my-drive'> Submit your task here..</a>   
+                    </div> 
+                       
+                    
+                </div>
+
+                <br><br><br><br><br>
+
+
+
+
+
+
+                
+            </div><!-----end row 3-------->
+                 
+             <div class='m-5 px-5 rounded bg-white' id='Week-02'>
+                <p class='text-secondary fs-6 text-right py-3 fw-bolder'>
+                Week-02:</p>
+                <div class='p-2' style='border-radius: 20px; border:solid 5px dimgray; background:rgb(176, 250, 204)' >
+                    <h2 class='text-center'>Week-02 Introduction to System Software</h2>
+                </div>
+                <!---------- chapter image-------->
+                <div class='d-flex justify-content-center mt-5'>
+                    <img src='../teacher/uploads/weeklysection/System_Software.png' height='200px' width='400px' >       
+                </div>
+                 <hr>
+
+                <!---------- Topics of discussion-------->
+                <div>
+                    <p style='' class='fw-bolder text-success fs-4'>Topics of discussion</p>
+                    <pre>Definition and types of system software.
+Deep dive into operating systems: Functions and examples.
+Utility software: What is it and how is it used?</pre>
+                </div>
+
+                <!---------- Topics of discussion-------->
+                <div>
+                    <p style='color:#71c7f5;' class='fw-bolder fs-4'>Expected Learning Outcome</p>
+                    <pre>Explain what system software is and its importance to the functioning of computers.
+Differentiate between various types of system software, especially operating systems and utilities.
+Recognize examples of system software and their applications.</pre>
+                </div>
+
+
+
+                <!---------- Discussion on Week-------->
+                <div>
+                    <p style='color:#b82f09;' class='fw-bolder fs-4'>Discussion on Week</p>
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='https://www.youtube.com/results?search_query=Introduction+to+computer+system' class='fw-bolder fs-6 ' style='color:#0975b8'><i class='fas fa-play-circle'></i>
+                            Class Recording</a>
+
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <strong class='fw-bolder fs-6' style='color:#0975b8'><i class='fas fa-question-circle'></i>
+                            Questions & Ans</strong>
+                            <pre>Q: Can a computer run without an operating system?
+A: No, the operating system is essential as it provides the necessary framework for application software to operate.
+Q: What are utility programs and give an example?
+A: Utilities are software programs that perform specific tasks, usually related to managing system resources. Examples include antivirus software and disk defragmenters.</pre>
+
+                        </div>
+
+                </div>
+                <hr>
+
+
+
+                <!---------- Materials  -------->
+                <div>
+                    <p style='color:#a171f5' class='fw-bolder fs-4 text-center'>Materials</p>
+                    <div class='row border border-secondary shadow rounded'>
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='' . uploads/weeklysection/Lecture Slide.pptx . '' download='Lecture Slide.pptx' class='fw-bolder fs-5 text-danger'><i class='fas fa-file-powerpoint'></i>
+                            Lecture Slide</a>
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='https://drive.google.com/drive/folders/1QlAzlmZKE62zOoFCzLKLNHqFAXCQTx-N?usp=sharing' class='fw-bolder fs-5' style='color:#1eb809'><i class='fas fa-video'></i>
+                            Lecture Video</a>
+
+                        </div>
+
+                        <div class='col-md-4 text-center my-4'>
+                            <a href='' . uploads/weeklysection/Lecture Slide.pptx . '' download='Lesson of this topic.pdf' class='fw-bolder fs-5 text-danger' class='fw-bolder  fs-5 text-danger'><i class='fas fa-file-pdf'></i>
+                            PDF</a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <br><br><br>
+                <div class='text-center'>
+                    <p style='color:red' class='fw-bolder fs-4 text-center'>Task Submission</p>
+                    <i class='fas fa-arrow-down fa-fw moving-icon' style='font-size: 28px; color:red;'></i><br>
+                    <div class='border border-secondary p-3 rounded fs-5 shadow'>
+                     <a href='https://drive.google.com/drive/u/0/my-drive'> Submit your task here..</a>   
+                    </div> 
+                       
+                    
+                </div>
+
+                <br><br><br><br><br>
+
+
+
+
+
+
+                
+            </div><!-----end row 3-------->
+                 
+
+
+
+
+
+
+
+
+
+        </div> <!------ end of main--->
+
+
+        
+    </div>
+
+
+
+
+
+        <!----- last child-footer --->
+        <style type="text/css">
+	.footer_bg{
+		background-color: #81C55D;
+	}
+</style>		
+
+		<div class="footer_bg  p-2 pt-3 text-center">
+			<div class="text-white row p-5">
+				<div class="col-md-6 col-sm-6">
+                   <p class="fw-bold fs-4">Shaikh Burhanuddin Post <br>Graduate College</p>
+                   <p class="fw-bold">62, Nazimuddin Road, Dhaka-1100 <br>| info@sbpgc.edu.bd</p>
+				</div>
+
+				<div class="col-md-6 col-sm-6 ">
+					<p class="fw-bold fs-4">Useful Links</p>
+					<a href="#" class="text-decoration-none  text-white fw-bold">OLC guidelines for students</a><br>
+					<a href="#" class="text-decoration-none text-white fw-bold">OLC guidelines for teachers</a><br>
+					<a href="#" class="text-decoration-none text-white fw-bold">Privacy Policy</a><br>
+					<a href="#" class="text-decoration-none text-white fw-bold">Terms of Use</a>
+				</div>
+			</div>
+			<p class="text-center py-3 text-white">Copyright © 2018 Shaikh Burhanuddin Post Graduate College . All Rights Reserved.</p>
+		</div>
+
+</div>
+
+
+
+
+
+<!--- bootstrap JS link --->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
